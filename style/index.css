@@ -1,0 +1,90 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'SF Pro Display', sans-serif !important;
+  letter-spacing: .5px;
+}
+
+:root {
+  --base-color: #1A4051;
+}
+
+body {
+  height: 100vh;
+  border-top: 5px solid var(--base-color);
+  overflow: hidden;
+}
+
+.row {
+  height: 100vh;
+}
+
+h1 {
+  color: #373737;
+}
+
+.logoWrapper img {
+  width: 90px;
+}
+
+.title {
+  font-size: 50px;
+  color: var(--base-color);
+}
+
+label {
+  color: var(--base-color);
+}
+
+input {
+  outline: none;
+  background: #F8F8F8;
+}
+
+input::placeholder {
+  color: #ACACAC;
+}
+
+.btn {
+  background: var(--base-color) !important;
+}
+
+p,
+a {
+  color: var(--base-color) !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  .formWrapper {
+    width: 300px;
+  }
+
+  .illustrasionWrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .formWrapper {
+    width: 250px;
+  }
+
+  .formWrapper img {
+    width: 60px;
+  }
+
+  .title {
+    font-size: 30px;
+    color: var(--base-color);
+  }
+}
