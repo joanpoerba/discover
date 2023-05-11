@@ -116,5 +116,7 @@ if (isset($_POST["tambahkanButton"])) {
   ];
   $deskripsiPakaianAdat = htmlspecialchars(mysqli_real_escape_string($connection, $_POST["deskripsiPakaianAdat"]));
 
-  addData($connection, $row["id"], $namaSuku, $gambarSuku, $deskripsiSuku, $asalSuku, $jumlahPenduduk, $namaMakananAdat, $gambarMakananAdat, $deskripsiMakananAdat, $namaPakaianAdat, $gambarPakaianAdat, $deskripsiPakaianAdat);
+  if(addData($connection, $row["id"], $namaSuku, $gambarSuku, $deskripsiSuku, $asalSuku, $jumlahPenduduk, $namaMakananAdat, $gambarMakananAdat, $deskripsiMakananAdat, $namaPakaianAdat, $gambarPakaianAdat, $deskripsiPakaianAdat)){
+    header("location: ../view/culture.php");
+  }
 }
