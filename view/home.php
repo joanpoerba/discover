@@ -61,7 +61,7 @@ require_once "../functions/homePageHandler.php";
       </section>
     </header>
     <a style=" z-index: 80; bottom: 10px !important; right: 10px !important;" class="waWrapper img-fluid d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block position-fixed" target="_blank" href="https://api.whatsapp.com/send/?phone=%2B6281262156159&text=Halo+FrogTel&type=phone_number&app_absent=0">
-      <img style="width: 50px;" src="../img/whatsapp.png" alt="">
+      <img style="width: 50px;" src="img/whatsapp.png" alt="">
     </a>
     <main class="container-fluid h-100 d-flex justify-content-center align-items-center">
       <div class="row justify-content-xxl-evenly justify-content-xl-evenly justify-content-lg-evenly justify-content-md-center justify-content-sm-center align-items-xxl-center align-items-xl-center align-items-lg-center align-items-md-start align-items-sm-start">

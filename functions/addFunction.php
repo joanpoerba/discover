@@ -85,6 +85,8 @@ function addData($connection, $usersId, $namaSuku, $gambarSuku, $deskripsiSuku, 
   if(mysqli_stmt_prepare($stmt, $insertQuery)){
     mysqli_stmt_bind_param($stmt, "ssssssssssss",$usersId, $namaSuku, $gambarSukuFileName, $deskripsiSuku, $asalSuku, $jumlahPenduduk, $namaMakananAdat, $gambarMakananFileName, $deskripsiMakananAdat, $namaPakaianAdat, $gambarPakaianFileName, $deskripsiPakaianAdat);
     mysqli_stmt_execute($stmt);
+
+    return mysqli_affected_rows($connection);
   }
 }
 
@@ -116,7 +118,7 @@ if (isset($_POST["tambahkanButton"])) {
   ];
   $deskripsiPakaianAdat = htmlspecialchars(mysqli_real_escape_string($connection, $_POST["deskripsiPakaianAdat"]));
 
-  if(addData($connection, $row["id"], $namaSuku, $gambarSuku, $deskripsiSuku, $asalSuku, $jumlahPenduduk, $namaMakananAdat, $gambarMakananAdat, $deskripsiMakananAdat, $namaPakaianAdat, $gambarPakaianAdat, $deskripsiPakaianAdat)){
+  if(addData($connection, $row["id"], $namaSuku, $gambarSuku, $deskripsiSuku, $asalSuku, $jumlahPenduduk, $namaMakananAdat, $gambarMakananAdat, $deskripsiMakananAdat, $namaPakaianAdat, $gambarPakaianAdat, $deskripsiPakaianAdat) > 0){
     header("location: ../view/culture.php");
   }
 }

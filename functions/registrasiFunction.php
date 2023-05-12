@@ -7,15 +7,15 @@ $information = null;
 if (!mysqli_connect_error()) {
   function register($connection, $username, $password)
   {
-    $checkQuery = "SELECT * FROM user";
+    $checkQuery = "SELECT * FROM user WHERE username = ?";
     $stmt = mysqli_stmt_init($connection);
 
     if (mysqli_stmt_prepare($stmt, $checkQuery)) {
+      mysqli_stmt_bind_param($stmt, "s", $username);
       mysqli_stmt_execute($stmt);
       $checkResult = mysqli_stmt_get_result($stmt);
-      $row = mysqli_fetch_assoc($checkResult);
 
-      if ($username == $row["username"]) {
+      if (mysqli_num_rows($checkResult) == 1) {
         return true;
       } else {
         $insertQuery = "INSERT INTO user(uniqueId, username, password) VALUES(?, ?, ?)";

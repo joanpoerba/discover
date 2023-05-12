@@ -65,7 +65,7 @@ require_once "../functions/articlePageHandler.php";
       <?php foreach ($datas as $data) : ?>
         <article class="bg-light shadow-sm">
           <div>
-            <h2><b><?= $data["namaSuku"]; ?></b></h2>
+            <h1><b><?= $data["namaSuku"]; ?></b></h1>
           </div>
           <div class="my-3">
             <hr class="w-100">

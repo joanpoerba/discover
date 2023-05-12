@@ -1,10 +1,9 @@
 <?php
 require_once "../databaseConnection.php";
 
-$loginSatus = $_SESSION["login"];
 $usersId = $_SESSION["usersId"];
 
-if(!$loginSatus && !isset($usersId)){
+if($_SESSION["login"] !== true){
   header("location: ../view/loginPage.php");
 }
 

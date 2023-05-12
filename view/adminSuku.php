@@ -2,7 +2,7 @@
 require_once "../databaseConnection.php";
 require_once "../functions/delete.php";
 
-$adminLoginStatus = $_SESSION["login"];
+$adminLoginStatus = $_SESSION["adminLogin"];
 
 if (!$adminLoginStatus) {
   header("location: ../view/loginPage.php");

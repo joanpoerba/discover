@@ -2,19 +2,19 @@
 require_once "../databaseConnection.php";
 $information = null;
 
+if (isset($_COOKIE["status"])) {
+  if ($_COOKIE["status"] == password_verify("login", $_COOKIE["status"])) {
+    $_SESSION["login"] = true;
+    $_SESSION["usersId"] = $_COOKIE["data"];
+  }
+}
+
+if (isset($_SESSION["login"])) {
+  header("location: ../view/home.php");
+}
+
 function login($connection, $username, $password)
 {
-  if (isset($_COOKIE["login"])) {
-    if ($_COOKIE["login"] == password_verify("login", $_COOKIE["login"])) {
-      $_SESSION["login"] = true;
-      $_SESSION["uniqueId"] = $_COOKIE["uniqueId"];
-    }
-  }
-
-  if (isset($_SESSION["login"])) {
-    header("location: ../view/home.php");
-  }
-
   $checkQuery = "SELECT * FROM user WHERE username = ?";
   $stmt = mysqli_stmt_init($connection);
 
@@ -50,8 +50,8 @@ function login($connection, $username, $password)
   }
 
   if (isset($_POST["remember"])) {
-    setcookie("st", password_hash("login", PASSWORD_BCRYPT), time() + 60);
-    setcookie("dt", $row["uniqueId"], time() + 60);
+    setcookie("status", password_hash("login", PASSWORD_BCRYPT), time() + 60);
+    setcookie("data", $row["uniqueId"], time() + 60);
   }
 }
 
