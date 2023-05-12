@@ -47,6 +47,7 @@ require_once "../functions/loginFunction.php";
           <li class="list-unstyled mt-4">
             <label for="password">Password</label><br />
             <input class="border-0 ps-3 py-2 fw-light w-100 rounded-3" type="password" id="password" name="password" placeholder="Masukkan password anda" autocomplete="off" required />
+            <a class="float-end mt-2" href="forgotPassword.php">Forgot your password?</a>
             <?php if ($information == "wrongPassword") : ?>
               <p class="position-absolute text-danger fst-italic">Please enter the correct password</p>
             <?php endif; ?>
