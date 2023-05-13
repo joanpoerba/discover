@@ -11,7 +11,11 @@ require_once "../functions/loginFunction.php";
   <meta name="description" content="a platform to knowing and add your culture to the world" />
   <meta name="autor" content="FrogTel" />
   <title>Discover</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
   <link rel="stylesheet" href="../style/loginPage.css" />
   <link rel="preload" href="../img/purpelLogo.png" />
   <link rel="preload" href="../img/welcomeBack_illustrasion.png" />
@@ -46,8 +50,11 @@ require_once "../functions/loginFunction.php";
           </li>
           <li class="list-unstyled mt-4">
             <label for="password">Password</label><br />
-            <input class="border-0 ps-3 py-2 fw-light w-100 rounded-3" type="password" id="password" name="password" placeholder="Masukkan password anda" autocomplete="off" required />
-            <a class="float-end mt-2" href="forgotPassword.php">Forgot your password?</a>
+            <div class="d-flex flex-row align-items-center">
+              <input id="passwordInput" class="border-0 ps-3 py-2 fw-light w-100 rounded-3" type="password" id="password" name="password" placeholder="Masukkan password anda" autocomplete="off" required />
+              <i style="cursor: pointer;" class="eye bi bi-eye fs-3 d-flex justify-content-center align-items-center ms-3"></i>
+            </div>
+            <a class="float-end mt-4" href="forgotPassword.php">Forgot your password?</a>
             <?php if ($information == "wrongPassword") : ?>
               <p class="position-absolute text-danger fst-italic">Please enter the correct password</p>
             <?php endif; ?>
@@ -71,6 +78,23 @@ require_once "../functions/loginFunction.php";
       </div>
     </div>
   </div>
+  <script>
+    const body = document.body
+    const eye = document.querySelector(".eye")
+    const input = document.getElementById("passwordInput")
+
+    eye.addEventListener("click", () => {
+      body.classList.toggle("showPassword")
+
+      if (body.classList.contains("showPassword")) {
+        eye.setAttribute("class", "eye bi bi-eye-slash fs-3 d-flex justify-content-center align-items-center ms-3")
+        input.setAttribute("type", "text")
+      } else {
+        eye.setAttribute("class", "eye bi bi-eye fs-3 d-flex justify-content-center align-items-center ms-3")
+        input.setAttribute("type", "password")
+      }
+    })
+  </script>
 </body>
 
 </html>

@@ -11,7 +11,10 @@ require_once "../functions/forgotPasswordFunction.php";
   <meta name="description" content="a platform to knowing and add your culture to the world" />
   <meta name="autor" content="FrogTel" />
   <title>Discover</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
   <link rel="stylesheet" href="../style/forgotPassword.css" />
   <link rel="icon" href="../img/icon.ico">
 </head>
@@ -50,7 +53,10 @@ require_once "../functions/forgotPasswordFunction.php";
           <?php if ($_SESSION["username"] == "ada") : ?>
             <li class="list-unstyled">
               <label for="password">Password</label><br />
-              <input class="border-0 ps-3 py-2 fw-light w-100 rounded-3" type="password" id="password" name="password" placeholder="Ganti password anda" autocomplete="off" autofocus required />
+              <div class="d-flex flex-row align-items-center">
+                <input id="passwordInput" class="border-0 ps-3 py-2 fw-light w-100 rounded-3" type="password" id="password" name="password" placeholder="Ganti password anda" autocomplete="off" autofocus required />
+                <i style="cursor: pointer;" class="eye bi bi-eye fs-3 d-flex justify-content-center align-items-center ms-3"></i>
+              </div>
             </li>
             <li class="list-unstyled mt-5">
               <button class="btn rounded-3 py-1 fs-5 text-light w-100" name="changeBtn">Change</button>
@@ -65,6 +71,23 @@ require_once "../functions/forgotPasswordFunction.php";
       </div>
     </div>
   </div>
+  <script>
+    const body = document.body
+    const eye = document.querySelector(".eye")
+    const input = document.getElementById("passwordInput")
+
+    eye.addEventListener("click", () => {
+      body.classList.toggle("showPassword")
+
+      if (body.classList.contains("showPassword")) {
+        eye.setAttribute("class", "eye bi bi-eye-slash fs-3 d-flex justify-content-center align-items-center ms-3")
+        input.setAttribute("type", "text")
+      } else {
+        eye.setAttribute("class", "eye bi bi-eye fs-3 d-flex justify-content-center align-items-center ms-3")
+        input.setAttribute("type", "password")
+      }
+    })
+  </script>
 </body>
 
 </html>
