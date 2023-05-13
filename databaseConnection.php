@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Jakarta");
 define("home", "localhost");
 define("username", "root");
 define("password", "");
-define("database", "discover");
+define("database", "ekstensi"); //persyaratan perlombaan
 
 $connection = mysqli_connect(home, username, password, database);
 ?>
