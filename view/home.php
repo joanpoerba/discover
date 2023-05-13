@@ -85,7 +85,6 @@ require_once "../functions/homePageHandler.php";
           </div>
           <div class="mt-3 d-flex flex-row justify-content-xxl-start justify-content-xl-start justify-content-lg-start justify-content-md-center justify-content-sm-center align-items-center">
             <a href="culture.php" class="btn py-2 px-4 fw-bold text-light fs-6">Explore</a>
-            <a href="loginPage.php" class="loginLink ms-3">Login</a>
           </div>
         </div>
         <div class="col-xxl-5 col-xl-4 col-lg-4 d-xxl-flex d-xl-flex d-lg-flex d-md-none d-sm-none justify-content-center align-items-center">
