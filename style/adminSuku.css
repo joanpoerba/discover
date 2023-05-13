@@ -15,7 +15,7 @@
 body {
   border-top: 5px solid var(--base-color);
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 aside {
