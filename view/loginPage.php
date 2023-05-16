@@ -1,25 +1,17 @@
-<?php
-require_once "../functions/loginFunction.php";
-?>
+<?php require_once "../functions/loginFunction.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="a platform to knowing and add your culture to the world" />
-  <meta name="autor" content="FrogTel" />
-  <title>Discover</title>
+  <?php require_once "../utils/meta.php" ?>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="../style/loginPage.css" />
+
   <link rel="preload" href="../img/purpelLogo.png" />
   <link rel="preload" href="../img/welcomeBack_illustrasion.png" />
-  <link rel="icon" href="../img/icon.ico">
 </head>
 
 <body class="container-fluid">
@@ -65,9 +57,7 @@ require_once "../functions/loginFunction.php";
           </li>
           <li class="list-unstyled mt-3">
             <button class="btn rounded-3 py-1 fs-5 text-light w-100" name="loginBtn">Login</button>
-            <p class="mt-2">
-              don't have an account? <a href="../index.php">Register</a>
-            </p>
+            <p class="mt-2">don't have an account? <a href="../index.php">Register</a></p>
           </li>
         </ul>
       </form>
@@ -78,23 +68,7 @@ require_once "../functions/loginFunction.php";
       </div>
     </div>
   </div>
-  <script>
-    const body = document.body
-    const eye = document.querySelector(".eye")
-    const input = document.getElementById("passwordInput")
-
-    eye.addEventListener("click", () => {
-      body.classList.toggle("showPassword")
-
-      if (body.classList.contains("showPassword")) {
-        eye.setAttribute("class", "eye bi bi-eye-slash fs-3 d-flex justify-content-center align-items-center ms-3")
-        input.setAttribute("type", "text")
-      } else {
-        eye.setAttribute("class", "eye bi bi-eye fs-3 d-flex justify-content-center align-items-center ms-3")
-        input.setAttribute("type", "password")
-      }
-    })
-  </script>
+  <script src="../js/showPassword.js"></script>
 </body>
 
 </html>

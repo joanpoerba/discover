@@ -96,32 +96,56 @@ $rows = fetchData($connection);
         <tbody>
           <?php $num = 1; ?>
           <?php foreach ($rows as $row) : ?>
-            <tr>
-              <th class="py-2 px-5" scope="row"><?= $num++ ?></th>
-              <th class="py-2 px-5">
-                <a class="text-danger" href="../functions/delete.php?id=<?= $row["id"]; ?>">
-                  <i data-feather="trash-2"></i>
-                </a>
-              </th>
-              <td class="py-2 px-5"><?= $row["id"]; ?></td>
-              <td class="py-2 px-5"><?= $row["usersId"]; ?></td>
-              <td class="py-2 px-5"><?= $row["namaSuku"]; ?></td>
-              <td class="py-2 px-5"><?= $row["gambarSuku"]; ?></td>
-              <td class="py-2 px-5"><?= $row["deskripsiSuku"]; ?></td>
-              <td class="py-2 px-5"><?= $row["asalSuku"]; ?></td>
-              <td class="py-2 px-5"><?= $row["jumlahPenduduk"]; ?></td>
-              <td class="py-2 px-5"><?= $row["namaMakananAdat"]; ?></td>
-              <td class="py-2 px-5"><?= $row["gambarMakananAdat"]; ?></td>
-              <td class="py-2 px-5"><?= $row["deskripsiMakanan"]; ?></td>
-              <td class="py-2 px-5"><?= $row["namaPakaianAdat"]; ?></td>
-              <td class="py-2 px-5"><?= $row["gambarPakaianAdat"]; ?></td>
-              <td class="py-2 px-5"><?= $row["deskripsiPakaianAdat"]; ?></td>
-            </tr>
+            <form action="" method="post">
+              <tr>
+                <th class="py-2 px-5" scope="row"><?= $num++ ?></th>
+                <th class="py-2 px-5">
+                  <a class="text-danger" href="../functions/delete.php?id=<?= $row["id"]; ?>">
+                    <i class="bi bi-trash-fill"></i>
+                  </a>
+                </th>
+                <td class="py-2 px-5"><?= $row["id"]; ?></td>
+                <td class="py-2 px-5"><?= $row["usersId"]; ?></td>
+                <td class="py-2 px-5"><?= $row["namaSuku"]; ?></td>
+                <td class="py-2 px-5">
+                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat gambar</a>
+                </td>
+                <td class="py-2 px-5">
+                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat deskripsi</a>
+                </td>
+                <td class="py-2 px-5"><?= $row["asalSuku"]; ?></td>
+                <td class="py-2 px-5"><?= $row["jumlahPenduduk"]; ?></td>
+                <td class="py-2 px-5"><?= $row["namaMakananAdat"]; ?></td>
+                <td class="py-2 px-5">
+                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat gambar</a>
+                </td>
+                <td class="py-2 px-5">
+                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat deskripsi</a>
+                </td>
+                <td class="py-2 px-5"><?= $row["namaPakaianAdat"]; ?></td>
+                <td class="py-2 px-5">
+                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat gambar</a>
+                </td>
+                <td class="py-2 px-5">
+                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat deskripsi</a>
+                </td>
+              </tr>
+            </form>
           <?php endforeach; ?>
         </tbody>
       </table>
     </section>
   </main>
+  <div style="display: none !important;" class="popUp container-fluid h-100 bg-dark bg-opacity-50 position-absolute top-0 justify-content-center align-items-center">
+    <article class="position-absolute w-50 h-50 bg-light shadow-sm rounded-3 d-flex flex-column justify-content-start align-items-end p-3">
+      <div>
+        <i style="cursor: pointer;" class="exitBtn bi bi-x fs-2"></i>
+      </div>
+      <?php foreach ($rows as $row) : ?>
+        <img class="img-fluid" src="../img/usersImgs/<?= $row["gambarSuku"]; ?>" alt="">
+      <?php endforeach; ?>
+    </article>
+  </div>
   <script>
     feather.replace();
 
@@ -138,6 +162,15 @@ $rows = fetchData($connection);
     arrow.addEventListener("click", () => {
       body.classList.toggle("onSidebar");
     });
+
+    const popUp = document.querySelector(".popUp")
+    const popUpBtn = document.getElementsByClassName("popUpBtn")
+
+    for(let i = 0; i <= popUpBtn.length; i++){
+      popUpBtn[i].addEventListener("click", () => {
+        popUp.style.display = "flex"
+      })
+    }
   </script>
 </body>
 

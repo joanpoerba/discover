@@ -15,7 +15,6 @@
 body {
   border-top: 5px solid var(--base-color);
   height: 100vh;
-  /* overflow: hidden; */
 }
 
 aside {
@@ -57,7 +56,7 @@ main {
   width: 70%;
 }
 
-main section {
+main section:first-child {
   width: 90%;
   overflow: scroll;
 }
@@ -68,4 +67,8 @@ main section {
 
 nav ul li:nth-child(2)>button {
   background: var(--base-color);
+}
+
+.popUp{
+  display: flex !important;
 }

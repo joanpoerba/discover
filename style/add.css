@@ -193,7 +193,7 @@ article section {
   }
 
   article {
-    padding-top: 90px !important;
+    padding: 70px 0 70px 0 !important;
     width: 600px;
   }
 }

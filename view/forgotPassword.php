@@ -1,22 +1,16 @@
-<?php
-require_once "../functions/forgotPasswordFunction.php";
-?>
+<?php require_once "../functions/forgotPasswordFunction.php" ; ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="a platform to knowing and add your culture to the world" />
-  <meta name="autor" content="FrogTel" />
-  <title>Discover</title>
+  <?php require_once "../utils/meta.php" ; ?>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="../style/loginPage.css" />
 
   <link rel="stylesheet" href="../style/forgotPassword.css" />
-  <link rel="icon" href="../img/icon.ico">
 </head>
 
 <body class="container-fluid">
@@ -71,23 +65,7 @@ require_once "../functions/forgotPasswordFunction.php";
       </div>
     </div>
   </div>
-  <script>
-    const body = document.body
-    const eye = document.querySelector(".eye")
-    const input = document.getElementById("passwordInput")
-
-    eye.addEventListener("click", () => {
-      body.classList.toggle("showPassword")
-
-      if (body.classList.contains("showPassword")) {
-        eye.setAttribute("class", "eye bi bi-eye-slash fs-3 d-flex justify-content-center align-items-center ms-3")
-        input.setAttribute("type", "text")
-      } else {
-        eye.setAttribute("class", "eye bi bi-eye fs-3 d-flex justify-content-center align-items-center ms-3")
-        input.setAttribute("type", "password")
-      }
-    })
-  </script>
+  <script src="../js/showPassword.js"></script>
 </body>
 
 </html>

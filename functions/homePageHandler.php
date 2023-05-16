@@ -22,4 +22,13 @@ function fetchData($connection, $usersId){
 }
 
 $row = fetchData($connection, $usersId);
+
+function logOut(){
+  session_destroy();
+  header("location: loginPage.php");
+}
+
+if(isset($_POST["logOutBtn"])){
+  logOut();
+}
 ?>

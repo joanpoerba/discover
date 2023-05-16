@@ -175,6 +175,13 @@ nav ul li:nth-child(1) a {
     transition: 1s;
   }
 
+  .logOutWrapper{
+    position: fixed !important;
+    z-index: 80 !important;
+    bottom: 10px !important;
+    background: #000;
+  }
+
   nav ul {
     color: white !important;
   }
@@ -224,14 +231,6 @@ nav ul li:nth-child(1) a {
 
   .row p {
     color: white !important;
-  }
-
-  .loginLink {
-    color: white;
-  }
-
-  .loginLink:hover {
-    color: white;
   }
 }
 
