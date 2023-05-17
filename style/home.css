@@ -129,6 +129,7 @@ nav ul li:nth-child(1) a {
   .humbergerWrapper {
     z-index: 90px;
     top: 45px;
+    cursor: pointer !important;
   }
 
   .humbergerLine,
@@ -179,7 +180,6 @@ nav ul li:nth-child(1) a {
     position: fixed !important;
     z-index: 80 !important;
     bottom: 10px !important;
-    background: #000;
   }
 
   nav ul {
@@ -218,7 +218,6 @@ nav ul li:nth-child(1) a {
 
   main {
     backdrop-filter: blur(2px);
-    background: #00000059;
   }
 
   .row h2 {
@@ -278,7 +277,7 @@ nav ul li:nth-child(1) a {
     margin-left: 10px !important;
   }
 
-  header section>div:nth-child(3) {
+  header section>div:nth-child(3) a {
     display: none;
   }
 

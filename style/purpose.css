@@ -182,6 +182,12 @@ main article p span {
     transition: 1s;
   }
 
+  .logOutWrapper {
+    position: fixed !important;
+    z-index: 80 !important;
+    bottom: 10px !important;
+  }
+
   nav ul {
     color: white !important;
   }
@@ -192,7 +198,7 @@ main article p span {
     padding: 5px 10px 5px 10px !important;
   }
 
-  nav ul li:nth-child(2){
+  nav ul li:nth-child(2) {
     margin: 20px 0 !important;
   }
 

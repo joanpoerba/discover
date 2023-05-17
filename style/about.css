@@ -177,6 +177,12 @@ main article p span {
     transition: 1s;
   }
 
+  .logOutWrapper {
+    position: fixed !important;
+    z-index: 80 !important;
+    bottom: 10px !important;
+  }
+
   nav ul {
     color: white !important;
   }
@@ -260,7 +266,7 @@ main article p span {
     margin-left: 10px !important;
   }
 
-  header section>div:nth-child(3) {
+  header section>div:nth-child(3) a {
     display: none;
   }
 

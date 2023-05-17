@@ -6,5 +6,8 @@
 <meta name="autor" content="FrogTel" />
 <title>Discover</title>
 
-<link rel="icon" href="img/icon.ico">
-<link rel="icon" href="../img/icon.ico">
+<link rel="preload"  href="img/icon.ico">
+<link rel="preload"  href="img/icon.ico">
+
+<link rel="icon"  href="../img/icon.ico">
+<link rel="icon"  href="../img/icon.ico">

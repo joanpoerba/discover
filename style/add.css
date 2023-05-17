@@ -82,7 +82,7 @@ nav ul li a {
 }
 
 article {
-  padding-top: 130px !important;
+  padding-top: 0px !important;
   width: 600px;
   overflow: scroll;
 }

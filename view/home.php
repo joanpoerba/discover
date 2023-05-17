@@ -1,4 +1,14 @@
-<?php require_once "../functions/homePageHandler.php"; ?>
+<?php 
+require_once "../functions/homePageHandler.php"; 
+require_once "../functions/logOutFunction.php";
+
+if(isset($_SESSION["sessionDestroy"])){
+  if($_SESSION["sessionDestroy"] == true){
+    session_destroy();
+    header("location: ../index.php");
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,14 +103,7 @@
       </div>
     </main>
   </div>
-  <script>
-    const humberger = document.querySelector(".humbergerWrapper");
-    const header = document.querySelector("header");
-
-    humberger.addEventListener("click", () => {
-      header.classList.toggle("sidebarOn");
-    });
-  </script>
+  <script src="../js/humberger.js"></script>
 </body>
 
 </html>
