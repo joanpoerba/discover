@@ -1,12 +1,6 @@
 <?php
 require_once "../databaseConnection.php";
 
-$adminLoginStatus = $_SESSION["adminLogin"];
-
-if (!$adminLoginStatus) {
-  header("location: ../view/loginPage.php");
-}
-
 if (isset($_POST["sukuBtn"])) {
   header("location: adminSuku.php");
 }
@@ -32,14 +26,16 @@ $rows = fetchData($connection);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discover Dashboard</title>
+
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
   <link rel="stylesheet" href="../style/adminUser.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body class="container-fluid">
   <div class="arrowWrapper rounded-5 p-2">
-    <i class="arrow" data-feather="chevron-right"></i>
+    <i class="arrow d-flex justify-content-center align-items-center bi bi-chevron-right"></i>
   </div>
   <aside class="h-100 shadow-sm bg-light py-3">
     <div class="d-flex flex-row align-items-center ms-3">
@@ -97,23 +93,7 @@ $rows = fetchData($connection);
       </table>
     </section>
   </main>
-  <script>
-    feather.replace();
-
-    const humberger = document.querySelector(".humbergerWrapper");
-    const header = document.querySelector("header");
-
-    humberger.addEventListener("click", () => {
-      header.classList.toggle("sidebarOn");
-    });
-
-    const body = document.body;
-    const arrow = document.querySelector(".arrowWrapper");
-
-    arrow.addEventListener("click", () => {
-      body.classList.toggle("onSidebar");
-    });
-  </script>
+  <script src="../js/sidebar.js"></script>
 </body>
 
 </html>

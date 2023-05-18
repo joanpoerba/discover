@@ -49,6 +49,10 @@ function login($connection, $username, $password)
     }
   }
 
+  if ($username == "admin" && $password == "frogtel") {
+    header("location: ../view/adminUser.php");
+  }
+
   if (isset($_POST["remember"])) {
     setcookie("status", password_hash("login", PASSWORD_BCRYPT), time() + 60);
     setcookie("data", $row["uniqueId"], time() + 60);
@@ -60,9 +64,4 @@ if (isset($_POST["loginBtn"])) {
   $password = htmlspecialchars(mysqli_real_escape_string($connection, $_POST["password"]));
 
   $information = login($connection, $username, $password);
-
-  if ($username == "admin" && $password == "frogtel") {
-    $_SESSION["adminLogin"] = true;
-    header("location: ../view/adminUser.php");
-  }
 }

@@ -2,12 +2,6 @@
 require_once "../databaseConnection.php";
 require_once "../functions/delete.php";
 
-$adminLoginStatus = $_SESSION["adminLogin"];
-
-if (!$adminLoginStatus) {
-  header("location: ../view/loginPage.php");
-}
-
 if (isset($_POST["userBtn"])) {
   header("location: adminUser.php");
 }
@@ -33,14 +27,16 @@ $rows = fetchData($connection);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discover Dashboard</title>
+
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
   <link rel="stylesheet" href="../style/adminSuku.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body class="container-fluid">
   <div class="arrowWrapper rounded-5 p-2">
-    <i class="arrow" data-feather="chevron-right"></i>
+    <i class="arrow d-flex justify-content-center align-items-center bi bi-chevron-right"></i>
   </div>
   <aside class="h-100 shadow-sm bg-light py-3">
     <div class="d-flex flex-row align-items-center ms-3">
@@ -82,15 +78,12 @@ $rows = fetchData($connection);
             <th class="py-2 px-5" scope="col">usersId</th>
             <th class="py-2 px-5" scope="col">namaSuku</th>
             <th class="py-2 px-5" scope="col">gambarSuku</th>
-            <th class="py-2 px-5" scope="col">deskripsiSuku</th>
             <th class="py-2 px-5" scope="col">asalSuku</th>
             <th class="py-2 px-5" scope="col">jumlahPenduduk</th>
             <th class="py-2 px-5" scope="col">namaMakananAdat</th>
             <th class="py-2 px-5" scope="col">gambarMakananAdat</th>
-            <th class="py-2 px-5" scope="col">deskripsiMakanan</th>
             <th class="py-2 px-5" scope="col">namaPakaianAdat</th>
             <th class="py-2 px-5" scope="col">gambarPakaianAdat</th>
-            <th class="py-2 px-5" scope="col">deskripsiPakaianAdat</th>
           </tr>
         </thead>
         <tbody>
@@ -101,34 +94,19 @@ $rows = fetchData($connection);
                 <th class="py-2 px-5" scope="row"><?= $num++ ?></th>
                 <th class="py-2 px-5">
                   <a class="text-danger" href="../functions/delete.php?id=<?= $row["id"]; ?>">
-                    <i class="bi bi-trash-fill"></i>
+                    <i class="bi bi-trash-fill fs-3"></i>
                   </a>
                 </th>
                 <td class="py-2 px-5"><?= $row["id"]; ?></td>
                 <td class="py-2 px-5"><?= $row["usersId"]; ?></td>
                 <td class="py-2 px-5"><?= $row["namaSuku"]; ?></td>
-                <td class="py-2 px-5">
-                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat gambar</a>
-                </td>
-                <td class="py-2 px-5">
-                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat deskripsi</a>
-                </td>
+                <td class="py-2 px-5"><?= $row["gambarSuku"]; ?></td>
                 <td class="py-2 px-5"><?= $row["asalSuku"]; ?></td>
                 <td class="py-2 px-5"><?= $row["jumlahPenduduk"]; ?></td>
                 <td class="py-2 px-5"><?= $row["namaMakananAdat"]; ?></td>
-                <td class="py-2 px-5">
-                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat gambar</a>
-                </td>
-                <td class="py-2 px-5">
-                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat deskripsi</a>
-                </td>
+                <td class="py-2 px-5"><?= $row["gambarMakananAdat"]; ?></td>
                 <td class="py-2 px-5"><?= $row["namaPakaianAdat"]; ?></td>
-                <td class="py-2 px-5">
-                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat gambar</a>
-                </td>
-                <td class="py-2 px-5">
-                  <a style="outline: none;" class="popUpBtn btn border-0 text-decoration-underline">Lihat deskripsi</a>
-                </td>
+                <td class="py-2 px-5"><?= $row["gambarPakaianAdat"]; ?></td>
               </tr>
             </form>
           <?php endforeach; ?>
@@ -136,42 +114,7 @@ $rows = fetchData($connection);
       </table>
     </section>
   </main>
-  <div style="display: none !important;" class="popUp container-fluid h-100 bg-dark bg-opacity-50 position-absolute top-0 justify-content-center align-items-center">
-    <article class="position-absolute w-50 h-50 bg-light shadow-sm rounded-3 d-flex flex-column justify-content-start align-items-end p-3">
-      <div>
-        <i style="cursor: pointer;" class="exitBtn bi bi-x fs-2"></i>
-      </div>
-      <?php foreach ($rows as $row) : ?>
-        <img class="img-fluid" src="../img/usersImgs/<?= $row["gambarSuku"]; ?>" alt="">
-      <?php endforeach; ?>
-    </article>
-  </div>
-  <script>
-    feather.replace();
-
-    const humberger = document.querySelector(".humbergerWrapper");
-    const header = document.querySelector("header");
-
-    humberger.addEventListener("click", () => {
-      header.classList.toggle("sidebarOn");
-    });
-
-    const body = document.body;
-    const arrow = document.querySelector(".arrowWrapper");
-
-    arrow.addEventListener("click", () => {
-      body.classList.toggle("onSidebar");
-    });
-
-    const popUp = document.querySelector(".popUp")
-    const popUpBtn = document.getElementsByClassName("popUpBtn")
-
-    for(let i = 0; i <= popUpBtn.length; i++){
-      popUpBtn[i].addEventListener("click", () => {
-        popUp.style.display = "flex"
-      })
-    }
-  </script>
+  <script src="../js/sidebar.js"></script>
 </body>
 
 </html>

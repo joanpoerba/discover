@@ -152,6 +152,12 @@ main article img {
     transition: 1s;
   }
 
+  .logOutWrapper {
+    position: fixed !important;
+    z-index: 80 !important;
+    bottom: 10px !important;
+  }
+
   header nav ul li:nth-child(2) {
     margin: 20px 0 !important;
   }
@@ -205,19 +211,19 @@ main article img {
     margin-left: 10px !important;
   }
 
-  header section>div:nth-child(3) {
+  header section>div:nth-child(3) a {
     display: none;
   }
 
-  main article h2{
+  main article h2 {
     font-size: 23px !important;
   }
 
-  main article p{
+  main article p {
     font-size: 14px !important;
   }
 
-  main article h4{
+  main article h4 {
     font-size: 18px !important;
   }
 }
