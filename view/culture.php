@@ -1,6 +1,13 @@
 <?php
 require_once "../functions/culturePageHandler.php";
 require_once "../functions/searchingFunction.php";
+require_once "../functions/logOutFunction.php";
+
+$usersId = $_SESSION["usersId"];
+
+if ($_SESSION["login"] !== true) {
+  header("location: ../view/loginPage.php");
+};
 
 if (isset($_POST["add"])) {
   header("location: ../view/add.php");
@@ -10,18 +17,13 @@ if (isset($_POST["add"])) {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="a platform to knowing and add your culture to the world" />
-  <meta name="autor" content="FrogTel" />
-  <title>Discover</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
+  <?php require_once "../utils/meta.php"; ?>
+
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
   <link rel="preload" href="../img/greenLogo.png" />
   <link rel="stylesheet" href="../style/culture.css" />
-  <link rel="icon" href="../img/icon.ico">
-  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body class="container-fluid">
@@ -43,23 +45,28 @@ if (isset($_POST["add"])) {
           <ul class="d-flex flex-xxl-row flex-xl-row flex-lg-row flex-md-column flex-sm-column justify-content-between align-items-xxl-center align-items-xl-center align-items-lg-center align-items-md-start align-items-sm-start">
             <li class="list-unstyled">
               <a class="d-flex flex-row justify-content-around align-items-center" href="home.php">
-                <i class="icon d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block" data-feather="home"></i>
+                <i class="bi bi-house-fill icon d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block fs-2"></i>
                 <span>Home</span></a>
             </li>
             <li class="list-unstyled">
               <a class="d-flex flex-row justify-content-around align-items-center" href="about.php">
-                <i class="icon d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block" data-feather="users"></i>
+                <i class="bi bi-person-hearts icon d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block fs-2"></i>
                 <span>About</span></a>
             </li>
             <li class="list-unstyled">
               <a class="d-flex flex-row justify-content-around align-items-center" href="purpose.php">
-                <i class="icon d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block" data-feather="minimize-2"></i>
+                <i class="bi bi-search-heart-fill icon d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block fs-2"></i>
                 <span>Purpose</span></a>
             </li>
           </ul>
         </nav>
-        <div class="d-xxl-block d-xl-block d-lg-block d-md-none d-sm-none">
-          <a target="_blank" href="https://api.whatsapp.com/send/?phone=%2B6281262156159&text=Halo+FrogTel&type=phone_number&app_absent=0" class="btn py-2 px-4 text-light fw-bold">Contact</a>
+        <div class="d-xxl-flex d-xl-flex d-lg-flex justify-content-center align-items-center">
+          <a target="_blank" href="https://api.whatsapp.com/send/?phone=%2B6281262156159&text=Halo+FrogTel&type=phone_number&app_absent=0" class="btn d-xxl-block d-xl-block d-lg-block d-md-none d-sm-none py-2 px-4 text-light fw-bold">Contact</a>
+          <form action="" method="post" class="logOutWrapper ms-xxl-5 ms-xl-5 ms-lg-5 ms-md-0 ms-sm-0">
+            <button class="btn bg-transparent shadow-none" name="logOutBtn">
+              <i class="bi bi-box-arrow-in-right fs-1"></i>
+            </button>
+          </form>
         </div>
       </section>
     </header>
@@ -73,8 +80,8 @@ if (isset($_POST["add"])) {
             <ul>
               <li class="list-unstyled d-flex flex-row justify-content-center align-items-center">
                 <input type="text" class="border-0 ps-3 py-2 fw-light rounded-3 w-100" name="keyword" placeholder="Cari suku mu..." autocomplete="off" autofocus required />
-                <button class="bg-transparent border-0" name="search">
-                  <i name="search" data-feather="search" class="searchBarIcon mx-3" style="cursor: pointer;"></i>
+                <button class="bg-transparent border-0 mx-3" name="search">
+                  <i class="searchBarIcon bi bi-search fs-2" style="cursor: pointer;"></i>
                 </button>
               </li>
             </ul>
@@ -83,7 +90,7 @@ if (isset($_POST["add"])) {
             <ul>
               <li class="list-unstyled d-flex flex-row justify-content-center align-items-center">
                 <button class="bg-transparent border-0" name="add">
-                  <i data-feather="plus-square" class="searchBarIcon" style="cursor: pointer"></i>
+                  <i class="searchBarIcon bi bi-plus-square fs-2" style="cursor: pointer"></i>
                 </button>
               </li>
             </ul>
@@ -116,16 +123,7 @@ if (isset($_POST["add"])) {
       </article>
     </main>
   </div>
-  <script>
-    feather.replace();
-
-    const humberger = document.querySelector(".humbergerWrapper");
-    const header = document.querySelector("header");
-
-    humberger.addEventListener("click", () => {
-      header.classList.toggle("sidebarOn");
-    });
-  </script>
+  <script src="../js/humberger.js"></script>
 </body>
 
 </html>

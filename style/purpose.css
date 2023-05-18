@@ -280,7 +280,7 @@ main article p span {
     margin-left: 10px !important;
   }
 
-  header section>div:nth-child(3) {
+  header section>div:nth-child(3) a {
     display: none;
   }
 

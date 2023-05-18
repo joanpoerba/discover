@@ -1,4 +1,13 @@
-<?php require_once "../functions/logOutFunction.php"; ?>
+<?php
+session_start();
+require_once "../functions/logOutFunction.php";
+
+$usersId = $_SESSION["usersId"];
+
+if ($_SESSION["login"] !== true) {
+  header("location: ../view/loginPage.php");
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 

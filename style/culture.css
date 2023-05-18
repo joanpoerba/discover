@@ -81,6 +81,7 @@ nav ul li a {
   transform: translateY(8px);
 }
 
+
 article {
   padding-top: 130px !important;
   width: 770px;
@@ -178,6 +179,12 @@ article section {
     margin: 20px 0 !important;
   }
 
+  .logOutWrapper {
+    position: fixed !important;
+    z-index: 80 !important;
+    bottom: 10px !important;
+  }
+
   nav ul {
     color: white !important;
   }
@@ -246,13 +253,8 @@ article section {
     margin-left: 10px !important;
   }
 
-  header section>div:nth-child(3) {
+  header section>div:nth-child(3) a {
     display: none;
-  }
-
-  .searchBarIcon {
-    width: 37px;
-    height: 37px;
   }
 
   article section {
