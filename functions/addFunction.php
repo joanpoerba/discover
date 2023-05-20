@@ -122,3 +122,4 @@ if (isset($_POST["tambahkanButton"])) {
     header("location: ../view/culture.php");
   }
 }
+?>

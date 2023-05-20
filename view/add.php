@@ -23,7 +23,7 @@ if ($_SESSION["login"] !== true) {
 
 <body class="container-fluid">
   <div class="landingPage container-fluid h-100">
-    <header class="container-fluid shadow-sm d-flex justify-content-center align-items-center py-xxl-3 py-xl-3 py-lg-3 py-md-3 py-sm-3 p-xxl-0 px-lg-0 p-lg-0 p-md-3 p-sm-3 ps-md-3 ps-sm-3 position-fixed">
+    <header class="container-fluid shadow-sm d-flex justify-content-center align-items-center py-xxl-3 py-xl-3 py-lg-3 py-md-3 py-sm-3 p-xxl-0 px-lg-0 p-lg-0 p-md-3 p-sm-3 ps-md-3 ps-sm-3">
       <section class="container-lg d-flex flex-xxl-row flex-xl-row flex-lg-row flex-md-column flex-sm-column justify-content-xxl-between justify-content-xl-between justify-content-lg-between align-items-xxl-center align-items-xl-center align-items-lg-center align-items-md-start align-items-sm-start h-100">
         <div class="d-flex flex-row justify-content-center align-items-center">
           <div class="logoWrapper">
@@ -68,8 +68,8 @@ if ($_SESSION["login"] !== true) {
     <a style=" z-index: 80; bottom: 10px !important; right: 10px !important;" class="waWrapper img-fluid d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block position-fixed" target="_blank" href="https://api.whatsapp.com/send/?phone=%2B6281262156159&text=Halo+FrogTel&type=phone_number&app_absent=0">
       <img style="width: 50px;" src="../img/whatsapp.png" alt="">
     </a>
-    <main class="container-fluid h-100 d-flex justify-content-center align-items-center">
-      <article class="h-100">
+    <main class="container-fluid d-flex flex-column align-items-center">
+      <article>
         <form action="" method="post" enctype="multipart/form-data">
           <ul>
             <li>
@@ -116,7 +116,7 @@ if ($_SESSION["login"] !== true) {
               <label for="deskripsiPakaianAdat">Deskripsi pakaian adat</label><br />
               <textarea class="w-100 border-0 ps-3 py-2 fw-light" rows="5" placeholder="Masukkan deskripsi pakaian" name="deskripsiPakaianAdat" id="deskripsiPakaianAdat"></textarea>
             </li>
-            <li class="mt-3">
+            <li class="list-unstyled">
               <button name="tambahkanButton" class="btn py-2 w-100 text-light fs-6">Tambahkan</button>
             </li>
           </ul>
