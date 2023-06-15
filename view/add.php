@@ -74,11 +74,11 @@ if ($_SESSION["login"] !== true) {
           <ul>
             <li>
               <label for="namaSuku">Nama suku</label><br />
-              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="nameSuku" name="namaSuku" placeholder="Masukkan nama suku" autocomplete="off" autofocus />
+              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="nameSuku" name="namaSuku" placeholder="Masukkan nama suku" autocomplete="off" autofocus required/>
             </li>
             <li>
               <label for="gambarSuku">Gambar suku</label><br />
-              <input class="w-100 border-0 ps-3 py-2 fw-light" type="file" name="gambarSuku" />
+              <input class="w-100 border-0 ps-3 py-2 fw-light" type="file" name="gambarSuku" required/>
             </li>
             <li>
               <label for="deskripsiSuku">Deskripsi suku</label><br />
@@ -86,19 +86,19 @@ if ($_SESSION["login"] !== true) {
             </li>
             <li>
               <label for="asalSuku">Asal suku</label><br />
-              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="asalSuku" name="asalSuku" placeholder="Masukkan asal suku" autofocus />
+              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="asalSuku" name="asalSuku" placeholder="Masukkan asal suku" autofocus required/>
             </li>
             <li>
               <label for="jumlahPenduduk">Jumlah penduduk</label><br />
-              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="jumlahPenduduk" name="jumlahPenduduk" placeholder="Masukkan jumlah penduduk" autofocus />
+              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="jumlahPenduduk" name="jumlahPenduduk" placeholder="Masukkan jumlah penduduk" autofocus required/>
             </li>
             <li>
               <label for="namaMakananAdat">Nama makanan adat</label><br />
-              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="namaMakananAdat" name="namaMakananAdat" placeholder="Masukkan nama makanan" autofocus />
+              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="namaMakananAdat" name="namaMakananAdat" placeholder="Masukkan nama makanan" autofocus required/>
             </li>
             <li>
               <label for="gambarMakananAdat">Gambar makanan Adat</label><br />
-              <input class="w-100 border-0 ps-3 py-2 fw-light" type="file" id="gambarMakananAdat" name="gambarMakananAdat" autofocus />
+              <input class="w-100 border-0 ps-3 py-2 fw-light" type="file" id="gambarMakananAdat" name="gambarMakananAdat" autofocus required/>
             </li>
             <li>
               <label for="deskripsiMakananAdat">Deskripsi makanan adat</label><br />
@@ -106,11 +106,11 @@ if ($_SESSION["login"] !== true) {
             </li>
             <li>
               <label for="namaPakaianAdat">Nama pakaian adat</label><br />
-              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="namaPakaianAdat" name="namaPakaianAdat" placeholder="Masukkan nama pakaian" autofocus />
+              <input class="w-100 border-0 ps-3 py-2 fw-light" type="text" id="namaPakaianAdat" name="namaPakaianAdat" placeholder="Masukkan nama pakaian" autofocus required/>
             </li>
             <li>
               <label for="gambarPakaianAdat">Gambar pakaian Adat</label><br />
-              <input class="w-100 border-0 ps-3 py-2 fw-light" type="file" id="gambarPakaianAdat" name="gambarPakaianAdat" autofocus />
+              <input class="w-100 border-0 ps-3 py-2 fw-light" type="file" id="gambarPakaianAdat" name="gambarPakaianAdat" autofocus required/>
             </li>
             <li>
               <label for="deskripsiPakaianAdat">Deskripsi pakaian adat</label><br />
